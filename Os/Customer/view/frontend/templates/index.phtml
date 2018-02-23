@@ -1,0 +1,67 @@
+<script type="text/x-magento-init">
+    {
+    "#os-form": {
+    "validation": {}
+    }
+    }
+</script>
+<?php $_loggedin = $this->helper('Magento\Checkout\Helper\Cart')->getCart()->getCustomerSession()->isLoggedIn(); ?>
+<div class="block block-dashboard-orders">
+
+    <form class="form contact-inchoo" action="<?php /* @escapeNotVerified */ echo $block->getFormAction(); ?>" id="os-form" method="post" data-hasrequired="* Required Fields">
+        <fieldset class="fieldset">
+            <div class="field name required">
+                <label class="label" for="title"><span><?php echo __('Title'); ?> </span></label>
+                <div class="control">
+                    <input name="title" id="title" title="title" value="" class="input-text" type="text" data-validate='{"required":true}' placeholder="<?php echo __('Title'); ?> " />
+                </div>
+            </div>
+            <div class="field name required">
+                <label class="label" for="description"><span><?php echo __('Description'); ?></span></label>
+                <div class="control">                    
+                    <textarea name="description" id="description" title="description" value="" class="input-text" data-validate='{"required":true}'"></textarea>
+                </div>
+            </div>                        
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <input type="hidden" name="hideit" id="hideit" value="" />
+                <button type="submit" title="Submit" class="action submit primary">
+                    <span>Send</span>
+                </button>
+            </div>
+        </div>
+    </form>
+    <h1></h1>
+    <div class="block-title order">
+        <strong>Welcome to Os Support </strong>
+    </div>
+
+    <table class="data table-order-items"> 
+        <caption class="table-caption"> Lest OS</caption>
+        <thead>
+            <tr>
+                <th class="col" scope="col">#</th>
+                <th class="col" scope="col"><?php echo __('Title'); ?></th>
+                <th class="col" scope="col"><?php echo __('Description('); ?></th>
+                <th class="col" scope="col"><?php echo __('Date'); ?></th>
+                <th class="col" scope="col"><?php echo __('Status'); ?></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($block->getTicketCollection() as $item) : ?>
+                <tr>
+                    <td><?php echo $item->getTicketId() ?></td>
+                    <td><?php echo $item->getTitle() ?></td>   
+                    <td><?php echo $item->getDescription() ?></td>   
+                    <td><?php echo $block->formatDate($item->getCreationDate()) ?></td>   
+                    <td><?php echo $item->getIsActive() ?></td>  
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+</div>
