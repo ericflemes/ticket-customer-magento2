@@ -11,7 +11,7 @@ Add the following lines into your composer.json
 ...
 "require":{
     ...
-    "Os/Customer":"^0.6"
+    "Os/Customer":"^1.0.8"
  }
 ```
 or simply digit 
