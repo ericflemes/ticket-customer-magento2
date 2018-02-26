@@ -24,7 +24,7 @@ class UpgradeSchema implements UpgradeSchemaInterface {
         $table = $installer->getConnection()
                 ->newTable($installer->getTable('support_tickets'))
                 ->addColumn('ticket_id', Table::TYPE_SMALLINT, null, ['identity' => true, 'nullable' => false, 'primary' => true], 'Ticket ID')
-                ->addColumn('entity_id', Table::TYPE_SMALLINT, null, ['identity' => true, 'nullable' => false], 'Ticket ID')
+                ->addColumn('entity_id', Table::TYPE_SMALLINT, null, ['nullable' => false], 'Ticket ID')
                 ->addColumn('title', Table::TYPE_TEXT, 255, ['nullable' => false], 'Ticket Title')
                 ->addColumn('description', Table::TYPE_TEXT, '2M', [], 'Ticket Description')
                 ->addColumn('is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '1'], 'Is Ticket Active?')
