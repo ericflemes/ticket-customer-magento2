@@ -20,13 +20,13 @@ class Main extends Template {
         parent::__construct($context);
     }
 
-    public function oTeste() {
-        $id_owner = $this->_customerSession->getCustomer()->getId();
-        return $id_owner;
-    }
-
+    /**
+     *  get id customer that is Logged the @param in url
+     *
+     * @return string
+     */
     public function getCustomerId() {
-        $id_owner = $this->_customerSession->getCustomer();
+        $id_owner = $this->_customerSession->getCustomer()->getId();
         return $id_owner;
     }
 
@@ -40,10 +40,11 @@ class Main extends Template {
         $page = ($this->getRequest()->getParam('p')) ? $this->getRequest()->getParam('p') : 1;
 
         $collection = $this->getPostFactory()
-                        ->getCollection()
-                        ->addFieldToFilter('entity_id', 2)
-                        ->setPageSize(10)
-                        ->setCurPage($page)->setOrder('ticket_id', 'desc');
+                ->getCollection()
+                ->addFieldToFilter('entity_id', $this->getCustomerId())
+                ->setPageSize(10)
+                ->setCurPage($page)
+                ->setOrder('ticket_id', 'desc');
 
         return $collection;
     }
@@ -54,8 +55,9 @@ class Main extends Template {
      * @return string
      */
     protected function _prepareLayout() {
-        $collection = $this->getTicketCollection();
 
+        $collection = $this->getTicketCollection();
+        //  See the sql uncomment  below
         // echo $collection->getSelect()->__toString();
         // die();
 

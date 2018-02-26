@@ -1,7 +1,7 @@
 {
     "name": "ticket-magento2/ticket-customer-magento2",
     "license": "GPL-3.0-only",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "type": "magento2-module",
     "description": "Magento module to manger a ticket with customer",
     "require": {

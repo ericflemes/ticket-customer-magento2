@@ -6,10 +6,7 @@
     <update handle="customer_account"/>
     <body>        
         <referenceBlock name="content">
-            <block
-                template="index.phtml"
-                class="Os\Customer\Block\Main"
-                name="os_customer_create_index"/>
+            <block template="index.phtml" cacheable="false" class="Os\Customer\Block\Main" name="os_customer_create_index"/>
         </referenceBlock>    
     </body>
 </page>
