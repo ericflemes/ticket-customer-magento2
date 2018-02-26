@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Os_Customer::helloworld" title="Hello World" module="Os_Customer" sortOrder="51" resource="Os_Customer::helloworld"/>
+        <add id="Os_Customer::post" title="Manage Posts" module="Os_Customer" sortOrder="10" action="mageplaza_helloworld/post" resource="Os_Customer::post" parent="Os_Customer::helloworld"/>
+        <add id="Os_Customer::hello_configuration" title="Configuration" module="Os_Customer" sortOrder="99" parent="Os_Customer::helloworld" action="adminhtml/system_config/edit/section/helloworld" resource="Os_Customer::helloworld_configuration"/>
+    </menu>
+</config>

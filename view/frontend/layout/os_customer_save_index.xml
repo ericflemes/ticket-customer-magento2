@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>OS</title>
+    </head>
+    <update handle="customer_account"/>
+    <body>        
+        <referenceBlock name="content">
+            <block
+                template="index.phtml"
+                class="Os\Customer\Block\Main"
+                name="os_customer_save_index"/>
+        </referenceBlock>    
+    </body>
+</page>
