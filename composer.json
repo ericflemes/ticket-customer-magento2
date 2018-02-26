@@ -5,9 +5,7 @@
     "type": "magento2-module",
     "description": "Magento module to manger a ticket with customer",
     "require": {
-        "php": "~7.0.0|~7.1.0",
-        "paypal/rest-api-sdk-php": "^1.13.0",
-        "guzzle/http": "^3.9"
+        "php": "~7.0.0|~7.1.0"
     },
     "authors": [
         {
