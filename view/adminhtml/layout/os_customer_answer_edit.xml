@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Ticket</title>
+    </head>
+    <body>        
+        <referenceBlock name="content">
+            <block template="edit.phtml" cacheable="false" class="Os\Customer\Block\Adminhtml\Edit" name="os_customer_answer_edit"/>
+        </referenceBlock> 
+    </body>
+</page>

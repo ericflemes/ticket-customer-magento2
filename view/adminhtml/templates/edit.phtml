@@ -1,0 +1,48 @@
+<script type="text/x-magento-init">
+    {
+    "#os-form": {
+    "validation": {}
+    }
+    }
+</script>
+<?php #var_dump($block->getTicketData()); ?>
+<div class="block block-dashboard-orders">
+
+    <form class="form contact-inchoo" action="<?php echo $block->getFormAction(); ?>" id="os-form" method="post" data-hasrequired="* Required Fields">
+
+        <div class="field name required">
+            <label class="admin__field-label" for="title"><span><?php echo __('Title'); ?> </span></label>
+            <div class="admin__field-control">
+                <input name="title" class="admin__control-text" id="title" title="title" type="text" data-validate='{"required":true}' value="<?php echo $block->getTicketData()->getTitle(); ?>" disabled="true"/>
+            </div>
+        </div>
+        <div class="field name required">
+            <label class="admin__field-label" for="description"><span><?php echo __('Description'); ?></span></label>
+            <div class="admin__field-control">                    
+                <textarea name="description" id="description" title="description" class="input-text admin__control-textarea" data-validate='{"required":true}' disabled="true"><?php echo $block->getTicketData()->getDescription(); ?></textarea>
+            </div>
+        </div>                     
+        <div class="field name required">
+            <label class="admin__field-label" for="answer"><span><?php echo __('Answer'); ?></span></label>
+            <div class="admin__field-control">  
+                <?php
+                if (!is_null($block->getTicketData()->getAnswer())) {
+                    $answer1 = 'true';
+                } else {
+                    $answer1 = 'false';
+                }
+                ?>
+                <textarea name="answer" id="description" title="answer" class="input-text admin__control-textarea" data-validate='{"required":true}' ><?php echo $block->getTicketData()->getAnswer(); ?></textarea>
+            </div>
+        </div>
+        <div class="actions-toolbar">
+            <div class="primary">                
+                <input name="ticket_id" type="hidden" value="<?php echo $block->getTicketID() ?>" /> 
+                <input name="form_key" type="hidden" value="<?php echo $block->getFormKey() ?>" /> 
+                <button type="submit" title="Submit" class="action submit primary">
+                    <span><?php echo __('Answer'); ?></span>
+                </button>
+            </div>
+        </div>
+    </form>   
+</div>

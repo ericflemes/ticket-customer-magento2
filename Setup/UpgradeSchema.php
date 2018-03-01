@@ -27,6 +27,7 @@ class UpgradeSchema implements UpgradeSchemaInterface {
                 ->addColumn('entity_id', Table::TYPE_SMALLINT, null, ['nullable' => false], 'Ticket ID')
                 ->addColumn('title', Table::TYPE_TEXT, 255, ['nullable' => false], 'Ticket Title')
                 ->addColumn('description', Table::TYPE_TEXT, '2M', [], 'Ticket Description')
+                ->addColumn('answer', Table::TYPE_TEXT, '2M', [], 'Ticket Answer')
                 ->addColumn('is_active', Table::TYPE_SMALLINT, null, ['nullable' => false, 'default' => '1'], 'Is Ticket Active?')
                 ->addColumn('creation_date', Table::TYPE_DATE, null, ['nullable' => false], 'Creation Date')
                 ->setComment('Support Tickets');

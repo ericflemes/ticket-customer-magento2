@@ -1,0 +1,15 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="os_customer_answer_listing_data_source" xsi:type="string">OS\Customer\Model\ResourceModel\Os\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Os\Customer\Model\ResourceModel\Os\Grid\Collection" type="Os\Customer\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">os_customer_answer</argument>
+            <argument name="resourceModel" xsi:type="string">Os\Customer\Model\ResourceModel\Answer</argument>
+        </arguments>
+    </virtualType>
+</config>

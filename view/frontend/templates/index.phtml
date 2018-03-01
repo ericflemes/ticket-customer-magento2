@@ -5,7 +5,7 @@
     }
     }
 </script>
-<?php $_loggedin = $this->helper('Magento\Checkout\Helper\Cart')->getCart()->getCustomerSession()->isLoggedIn(); ?>
+
 <div class="block block-dashboard-orders">
 
     <form class="form contact-inchoo" action="<?php /* @escapeNotVerified */ echo $block->getFormAction(); ?>" id="os-form" method="post" data-hasrequired="* Required Fields">
@@ -43,7 +43,7 @@
             <tr>
                 <th class="col" scope="col">#</th>
                 <th class="col" scope="col"><?php echo __('Title'); ?></th>
-                <th class="col" scope="col"><?php echo __('Description('); ?></th>
+                <th class="col" scope="col"><?php echo __('Description'); ?></th>
                 <th class="col" scope="col"><?php echo __('Date'); ?></th>
                 <th class="col" scope="col"><?php echo __('Status'); ?></th>
 
@@ -52,12 +52,18 @@
         <tbody>
             <?php foreach ($block->getTicketCollection() as $item) : ?>
                 <tr>
-                    <td><?php echo $item->getTicketId() ?></td>
-                    <td><?php echo $item->getTitle() ?></td>   
-                    <td><?php echo $item->getDescription() ?></td>   
-                    <td><?php echo $block->formatDate($item->getCreationDate()) ?></td>   
-                    <td><?php echo $item->getIsActive() ?></td>  
+                    <td><b><?php echo $item->getTicketId();?></b></td>
+                    <td><b><?php echo $item->getTitle();?></b></td>   
+                    <td><b><?php echo $item->getDescription();?></b></td>   
+                    <td><b><?php echo $block->formatDate($item->getCreationDate());?></b></td>
+                    <td><b><?php if($item->getIsActive()== 1){ echo __('Waiting for an answer'); }else{ echo __('Answered'); } ?></b></td>  
                 </tr>
+                <?php if($item->getIsActive()!= 1):?>
+                <tr>
+                    <td></td>
+                    <td colspan="3" class="text-info"> &bull;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $item->getAnswer(); ?></td>
+                </tr>
+                <?php endif?>
             <?php endforeach; ?>
         </tbody>
     </table>
